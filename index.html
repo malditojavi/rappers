@@ -6,85 +6,64 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
-    
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-    
-  <div class="container">
 
-    <div class="row" id="wrapperrapper">
-      <img src="" class="">
-      <span class=""></span>
+    <div class="container">
+
+    test
+
+      <div class="row" id="wrapperrapper">
+        <img src="" class="">
+        <span class=""></span>
+      </div>
+      <div class="player">
+        <button value="false" style="background-color: #FF6B6B; border: none; font-size: 2em;">
+        False
+        </button>
+
+        <button id="truebutton" onclick="compareStatus()" value="true" style="background-color: #4BCC92;  border: none; font-size: 2em;">
+        True
+        </button>
+      </div>
+
     </div>
-    <div class="player">
-      <button value="false" style="background-color: #FF6B6B; border: none; font-size: 2em;">
-      False
-      </button>
 
-      <button id="truebutton" onclick="compareStatus()" value="true" style="background-color: #4BCC92;  border: none; font-size: 2em;">
-      True
-      </button>
-    </div>
+    <script>
 
-  </div>
+    // code to show rappers
 
-  <script>
+    var rapperA = {firstName:"A$AP Rocky", image:"http://www.intothechic.com/medias/2016/07/ok-2-660x550.jpg", clip:"clipJohn.mp3", status:"true"};
+    var rapperB = {firstName:"JayZ", image:"http://www.billboard.com/files/media/big-sean-press-photo-2016-billboard-1548.jpg", clip:"clipJayZ.mp3", status:"true"};
+    var rapperC = {firstName:"Big Sean", image:"http://www.rap-up.com/app/uploads/2016/11/quavo-michigan.jpg", clip:"clipBigSean.mp3", status:"false"};
 
-  // code to show rappers
+    var rappers = new Array ();
 
-  var rapperA = {firstName:"A$AP Rocky", image:"http://www.intothechic.com/medias/2016/07/ok-2-660x550.jpg", clip:"clipJohn.mp3", status:"true"};
-  var rapperB = {firstName:"JayZ", image:"http://www.billboard.com/files/media/big-sean-press-photo-2016-billboard-1548.jpg", clip:"clipJayZ.mp3", status:"true"};
-  var rapperC = {firstName:"Big Sean", image:"http://www.rap-up.com/app/uploads/2016/11/quavo-michigan.jpg", clip:"clipBigSean.mp3", status:"false"};
+    rappers.push(rapperA);
+    rappers.push(rapperB);
+    rappers.push(rapperC);
 
-  var rappers = new Array ();
-
-  rappers.push(rapperA);
-  rappers.push(rapperB);
-  rappers.push(rapperC);
-
-  var statusRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].status;
-  var randomRapper = rappers[Math.floor(Math.random()*rappers.length)];
-  // var firstNameRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].firstName;
-  // var imageRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].image;
-  document.getElementById('wrapperrapper').innerHTML += "<h1>" + randomRapper.firstName + "</h1> <img src=" + randomRapper.image + ">";
+    var statusRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].status;
+    var randomRapper = rappers[Math.floor(Math.random()*rappers.length)];
+    // var firstNameRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].firstName;
+    // var imageRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].image;
+    document.getElementById('wrapperrapper').innerHTML += "<h1>" + randomRapper.firstName + "</h1> <img src=" + randomRapper.image + "style='width:5em;'>";
 
 
-  console.log(randomRapper.firstName, randomRapper.status, )
+    console.log(randomRapper.firstName, randomRapper.status, )
 
 
-  // code to check if the status of rapper matches the button value
+    // code to check if the status of rapper matches the button value
 
-  var valueTruebutton = document.getElementById("truebutton").value;
+    var valueTruebutton = document.getElementById("truebutton").value;
 
 
-  function compareStatus() {
-    if(valueTruebutton === statusRandomrapper) {
-      alert("Both status are true");
-    } else {
-      alert("Nah, those status are different");
+    function compareStatus() {
+      if(valueTruebutton === statusRandomrapper) {
+        alert("Both status are true");
+      } else {
+        alert("Nah, those status are different");
+      }
     }
-  }
-  </script>
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '113980065913797',
-      xfbml      : true,
-      version    : 'v2.10'
-    });
-    FB.AppEvents.logPageView();
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
+    </script>
 
   </body>
 </html>

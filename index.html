@@ -69,10 +69,20 @@
 
     // 3. Code to add 1 value to cookie per each correct answer
 
+    // This creates a variable so we can work with the value of the 'score'
     var valueScore = +Cookies.get('score');
 
-    Cookies.set('score', 0);
+    // This is the code to keep the 'score' value after displaying a new rapper
+    var someVarName = "value";
+    localStorage.setItem("someVarName", someVarName);
 
+    // This is the code that would return the recurring value
+    var someVarName = localStorage.getItem("someVarName");
+
+
+    // Cookies.set('score', 0);
+
+    // print value from score
     document.getElementById('score').innerHTML += "<h1>" + Cookies.get('score'); + "</h1>";
 
 

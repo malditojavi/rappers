@@ -60,14 +60,16 @@
     function compareStatus() {
       if(valueTruebutton === statusRandomrapper) {
         alert("Both status are true");
+        Cookies.set('score', value + 1);
       } else {
         alert("Nah, those status are different");
+        Cookies.set('score', value - 1);
       }
     }
 
     // 3. Code to add 1 value to cookie per each correct answer
 
-    Cookies.set('score', 1);
+    Cookies.set('score', 0);
 
     document.getElementById('score').innerHTML += "<h1>" + Cookies.get('score'); + "</h1>";
 

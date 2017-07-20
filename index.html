@@ -12,7 +12,7 @@
 
     <div class="container">
 
-    test
+    <span id="score"><span>
 
       <div class="row" id="wrapperrapper">
         <img src="" class="">
@@ -69,6 +69,8 @@
     // 3. Code to add 1 value to cookie per each correct answer
 
     Cookies.set('score', 1);
+
+    document.getElementById('score').innerHTML += "<h1>" + Cookies.get('score'); + "</h1>";
 
 
     </script>

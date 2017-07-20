@@ -5,12 +5,13 @@
     <title>Scoring</title>
   </head>
   <body style="background-color: black;">
+    <span style="margin: 0 auto; color: orange; font-weight: 700; font-size: 2.5em;">You guessed <span id="guessed"></span>in a row</span>
+
     <script>
     // print value from score
     document.getElementById('guessed').innerHTML += "<h1>" + Cookies.get('score'); + "</h1>";
     </script>
 
-    <span style="margin: 0 auto; color: orange; font-weight: 700; font-size: 2.5em;">You guessed <span id="guessed"></span>in a row</span>
 
   </body>
 </html>

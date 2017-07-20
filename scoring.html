@@ -8,12 +8,13 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body style="background-color: black;">
+  <span style="margin: 0 auto; color: orange; font-weight: 700; font-size: 2.5em;">You guessed <span id="guessed"></span>in a row</span>
     <script>
     // print value from score
-    document.write(Cookies.get("score"));
+    document.getElementById('guessed').innerHTML = Cookies.get("score");
     </script>
 
-    <span style="margin: 0 auto; color: orange; font-weight: 700; font-size: 2.5em;">You guessed <span id="guessed"></span>in a row</span>
+
 
 
 

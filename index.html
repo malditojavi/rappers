@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Guess The Rapper</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.js"></script>
   </head>
   <body>
 
@@ -29,10 +31,10 @@
 
     <script>
 
-    // code to show rappers
+    // 1. code to show rappers
 
     var rapperA = {firstName:"A$AP Rocky", image:"http://www.intothechic.com/medias/2016/07/ok-2-660x550.jpg", clip:"clipJohn.mp3", status:"true"};
-    var rapperB = {firstName:"JayZ", image:"http://www.billboard.com/files/media/big-sean-press-photo-2016-billboard-1548.jpg", clip:"clipJayZ.mp3", status:"true"};
+    var rapperB = {firstName:"JayZ", image:"http://www.billboard.com/files/styles/article_main_image/public/media/Quavo-2017-billboard-jan-28-1548.jpg", clip:"clipJayZ.mp3", status:"true"};
     var rapperC = {firstName:"Big Sean", image:"http://www.rap-up.com/app/uploads/2016/11/quavo-michigan.jpg", clip:"clipBigSean.mp3", status:"false"};
 
     var rappers = new Array ();
@@ -51,10 +53,9 @@
     console.log(randomRapper.firstName, randomRapper.status, )
 
 
-    // code to check if the status of rapper matches the button value
+    // 2. code to check if the status of rapper matches the button value
 
     var valueTruebutton = document.getElementById("truebutton").value;
-
 
     function compareStatus() {
       if(valueTruebutton === statusRandomrapper) {
@@ -63,6 +64,12 @@
         alert("Nah, those status are different");
       }
     }
+
+    // 3. Code to add 1 value to cookie per each correct answer
+
+    Cookies.set(score, 1);
+
+
     </script>
 
   </body>

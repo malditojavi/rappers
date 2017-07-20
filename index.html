@@ -64,8 +64,7 @@
         location.reload();
       } else {
         alert("Nah, those status are different");
-        Cookies.set('score', valueScore - 1);
-        location.reload();
+          window.location.replace("/scoring");
       }
     }
 

@@ -3,29 +3,64 @@
   <head>
     <meta charset="UTF-8">
     <title>Guess The Rapper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.js"></script>
+
 
   </head>
-  <body>
+  <body id="body">
+
+<style>
+body {
+  background-color: black;
+}
+#wrapperrapper {
+  background-color: green;
+  margin: 0 auto;
+  position: relative;
+}
+.imagerapper {
+  width: 100vw !important;
+  display: block;
+  margin: 0 auto;
+}
+.player {
+  position: absolute;
+}
+
+</style>
 
 
+    <div class="">
 
-    <div class="container">
 
       <div class="row" id="wrapperrapper">
-        <span id="score"><span>
-      </div>
-      <div class="player">
-        <button value="false" style="background-color: #FF6B6B; border: none; font-size: 2em;">
-        False
-        </button>
 
-        <button id="truebutton" onclick="compareStatus()" value="true" style="background-color: #4BCC92;  border: none; font-size: 2em;">
-        True
-        </button>
+      <!-- This is the modal that will be displayed after someone clicks True button -->
+
+
+
+        <span id="score"><span>
+        <div class="player">
+          <button value="false" style="background-color: #FF6B6B; border: none; font-size: 2em;">
+          False
+          </button>
+
+          <button id="truebutton" onclick="compareStatus()" value="true" style="background-color: #4BCC92;  border: none; font-size: 2em;">
+          True
+          </button>
+
+          <div id="audio"></div>
+
+        </div>
       </div>
+
+
 
     </div>
 
@@ -33,9 +68,9 @@
 
     // 1. code to show rappers
 
-    var rapperA = {firstName:"A$AP Rocky", image:"http://www.intothechic.com/medias/2016/07/ok-2-660x550.jpg", clip:"clipJohn.mp3", status:"true"};
-    var rapperB = {firstName:"JayZ", image:"http://www.billboard.com/files/styles/article_main_image/public/media/Quavo-2017-billboard-jan-28-1548.jpg", clip:"clipJayZ.mp3", status:"true"};
-    var rapperC = {firstName:"Big Sean", image:"http://www.rap-up.com/app/uploads/2016/11/quavo-michigan.jpg", clip:"clipBigSean.mp3", status:"false"};
+    var rapperA = {firstName:"A$AP Rocky", image:"http://www.intothechic.com/medias/2016/07/ok-2-660x550.jpg", clip:"https://f001.backblazeb2.com/file/Despacitotest/asap10.mp4", status:"true", smallthumbnail: "http://therapboard.com/images/artists/travisscott.png"};
+    var rapperB = {firstName:"JayZ", image:"http://www.billboard.com/files/styles/article_main_image/public/media/Quavo-2017-billboard-jan-28-1548.jpg", clip:"https://f001.backblazeb2.com/file/Despacitotest/bigsean10.mp4", status:"true", smallthumbnail: "http://therapboard.com/images/artists/quavo.png"};
+    var rapperC = {firstName:"Big Sean", image:"http://www.rap-up.com/app/uploads/2016/11/quavo-michigan.jpg", clip:"https://f001.backblazeb2.com/file/Despacitotest/future10.mp4", status:"false", smallthumbnail: "http://therapboard.com/images/artists/bigsean.png"};
 
     var rappers = new Array ();
 
@@ -45,9 +80,11 @@
 
     var statusRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].status;
     var randomRapper = rappers[Math.floor(Math.random()*rappers.length)];
-    // var firstNameRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].firstName;
-    // var imageRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].image;
-    document.getElementById('wrapperrapper').innerHTML += "<h1>" + randomRapper.firstName + "</h1> <img src=" + randomRapper.image + " >";
+
+    // This code shows the First name and thumbnail of the rapper
+    document.getElementById('wrapperrapper').innerHTML += "<h1>" + randomRapper.firstName + "</h1> <img class='imagerapper' src=" + randomRapper.image + " >";
+    document.getElementById('audio').innerHTML += "<audio autoplay><source src='" + randomRapper.clip + "' type='video/mp4'>Your browser does not support the audio element.</audio>";
+    document.getElementById('audio').innerHTML += "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-body'><img src='" + randomRapper.smallthumbnail + "' style='width: 2em;'><span style='display: block;'>you da real MVP, bro</span></div><div class='modal-footer'><button type='button' class='btn btn-primary' onclick='loadNextRapper();''>Ok, next rapper</button></div></div></div></div>";
 
 
     console.log(randomRapper.firstName, randomRapper.status, )
@@ -59,9 +96,10 @@
 
     function compareStatus() {
       if(valueTruebutton === statusRandomrapper) {
-        alert("Both status are true");
+        // alert("Both status are true");
+        $('#myModal').modal('toggle');
         Cookies.set('score', valueScore + 1);
-        location.reload();
+        // location.reload();
       } else {
         alert("Nah, those status are different");
           window.location.replace("/scoring");
@@ -78,8 +116,14 @@
     // print value from score
     document.getElementById('score').innerHTML += "<h1> Score:" + Cookies.get('score'); + "</h1>";
 
+    // Function to load next rapper
+
+    function loadNextRapper(){
+      location.reload();
+    }
 
     </script>
+
 
   </body>
 </html>

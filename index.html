@@ -50,7 +50,7 @@ body {
           <button value="false" style="background-color: #FF6B6B; border: none; font-size: 2em;">
           False
           </button>
-
+          <button onclick="playClip()"><img src="https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_3-512.png" style="width: 5em;"></button>
           <button id="truebutton" onclick="compareStatus()" value="true" style="background-color: #4BCC92;  border: none; font-size: 2em;">
           True
           </button>
@@ -89,6 +89,8 @@ body {
 
     console.log(randomRapper.firstName, randomRapper.status, )
 
+    Cookies.set('score', 0);
+
 
     // 2. code to check if the status of rapper matches the button value
 
@@ -102,7 +104,7 @@ body {
         // location.reload();
       } else {
         alert("Nah, those status are different");
-          window.location.replace("/scoring");
+          window.location.replace("scoring.html");
       }
     }
 
@@ -120,6 +122,13 @@ body {
 
     function loadNextRapper(){
       location.reload();
+    }
+
+    // Function to play clip
+
+    function playClip (){
+      var audio = new Audio(randomRapper.clip);
+      audio.play();
     }
 
     </script>

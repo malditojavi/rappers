@@ -26,6 +26,7 @@
   }
   .imagerapper {
    width: 100vw !important;
+   height: 100vh !important;
    display: block;
    margin: 0 auto;
   }
@@ -37,11 +38,12 @@
   <div class="">
     <div class="row" id="wrapperrapper">
       <!-- This is the modal that will be displayed after someone clicks True button -->
-       <span id="score"><span></span></span>
+      <span id="score"><span></span></span>
       <div class="player">
-        <span id="score"><button id="falsebutton" onclick="compareStatusFalseButton()" style="background-color: #FF6B6B; border: none; font-size: 2em;" value="false"><span id="score">False</span> <!-- <button onclick="playClip()"><img src="https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_3-512.png" style="width: 5em;"></button> -->
+        <span id="score"><button id="falsebutton" onclick="compareStatusFalseButton()" style="background-color: #FF6B6B; border: none; font-size: 2em;" value="false"><span id="score">False</span> <button onclick="playClip()"><img src="https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_3-512.png" style="width: 5em;"></button>
          <button id="truebutton" onclick="compareStatusTrueButton()" style="background-color: #4BCC92; border: none; font-size: 2em;" value="true">True</button>
-        <div id="audio"></div></button></span>
+        <div id="audio"></div></button>
+        </span>
       </div>
     </div>
   </div>
@@ -50,12 +52,12 @@
 
      var valueTruebutton = document.getElementById("truebutton").value;
      var valueFalsebutton = document.getElementById("falsebutton").value;
-     Cookies.set('score', 0);
+     // Cookies.set('score', 0);
 
      // 1. code to show rappers
 
      var rapperA = {firstName:"A$AP Rocky", image:"http://www.intothechic.com/medias/2016/07/ok-2-660x550.jpg", clip:"https://f001.backblazeb2.com/file/Despacitotest/asap10.mp4", status:"true", smallthumbnail: "http://therapboard.com/images/artists/travisscott.png"};
-     var rapperB = {firstName:"JayZ", image:"http://www.billboard.com/files/styles/article_main_image/public/media/Quavo-2017-billboard-jan-28-1548.jpg", clip:"https://f001.backblazeb2.com/file/Despacitotest/bigsean10.mp4", status:"true", smallthumbnail: "http://therapboard.com/images/artists/quavo.png"};
+     var rapperB = {firstName:"JayZ", image:"http://www.billboard.com/files/styles/article_main_image/public/media/Quavo-2017-billboard-jan-28-1548.jpg", clip:"https://f001.backblazeb2.com/file/Despacitotest/bigsean10.mp4", status:"false", smallthumbnail: "http://therapboard.com/images/artists/quavo.png"};
      var rapperC = {firstName:"Big Sean", image:"http://www.rap-up.com/app/uploads/2016/11/quavo-michigan.jpg", clip:"https://f001.backblazeb2.com/file/Despacitotest/future10.mp4", status:"false", smallthumbnail: "http://therapboard.com/images/artists/bigsean.png"};
 
      var rappers = new Array ();
@@ -67,13 +69,13 @@
      var statusRandomrapper = rappers[Math.floor(Math.random()*rappers.length)].status;
      var randomRapper = rappers[Math.floor(Math.random()*rappers.length)];
 
-     // This code shows the First name and thumbnail of the rapper
+     // This code renders attributes  First name and thumbnail of the rapper
      document.getElementById('wrapperrapper').innerHTML += "<h1>" + randomRapper.firstName + "<\/h1> <img class='imagerapper' src=" + randomRapper.image + " >";
      document.getElementById('audio').innerHTML += "<audio autoplay><source src='" + randomRapper.clip + "' type='video/mp4'>Your browser does not support the audio element.<\/audio>";
      document.getElementById('audio').innerHTML += "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-body'><img src='" + randomRapper.smallthumbnail + "' style='width: 2em;'><span style='display: block;'>you da real MVP, bro<\/span><\/div><div class='modal-footer'><button type='button' class='btn btn-primary' onclick='loadNextRapper();''>Ok, next rapper<\/button><\/div><\/div><\/div><\/div>";
 
 
-     console.log(randomRapper.firstName, randomRapper.status, valueTruebutton )
+     console.log("randomRapper.name:" + randomRapper.firstName + ", randomRapper.status: " +  randomRapper.status + " valueTruebutton: " +  valueTruebutton + " valueFalsebutton: " +  valueFalsebutton )
 
      // 2. code to check if the status of rapper matches the button value
 

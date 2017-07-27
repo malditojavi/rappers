@@ -138,12 +138,14 @@
             document.getElementById('wrapperrapper').innerHTML += "<h1>" + randomRapper.firstName + "<\/h1> <img class='imagerapper' src=" + randomRapper.image + " >";
             document.getElementById('audio').innerHTML += "<audio autoplay><source src='" + randomRapper.clip + "' type='video/mp4'>Your browser does not support the audio element.<\/audio>";
             document.getElementById('audio').innerHTML += "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-body'><img src='" + randomRapper.smallthumbnail + "' style='width: 2em;'><span style='display: block;'>you da real MVP, bro<\/span><\/div><div class='modal-footer'><button type='button' class='btn btn-primary' onclick='loadNextRapper();''>Ok, next rapper<\/button><\/div><\/div><\/div><\/div>";
-            // console.log("randomRapper.name:" + randomRapper.firstName + ", randomRapper.status: " + randomRapper.status + " valueTruebutton: " + valueTruebutton + " valueFalsebutton: " + valueFalsebutton)
-            // console.log("randomRapper.status: " + typeof randomRapper.status)
-            // console.log("randomRapper.valueTruebutton: " + typeof valueTruebutton)
-            // console.log("randomRapper.valueFalsebutton: " + typeof valueFalsebutton)
+
+            console.log("randomRapper.name:" + randomRapper.firstName + ", randomRapper.status: " + randomRapper.status + " valueTruebutton: " + valueTruebutton + " valueFalsebutton: " + valueFalsebutton)
+            console.log("randomRapper.status: " + typeof randomRapper.status)
+            console.log("randomRapper.valueTruebutton: " + typeof valueTruebutton)
+            console.log("randomRapper.valueFalsebutton: " + typeof valueFalsebutton)
             // 2. code to check if the status of rapper matches the button value
             // Checks if the rapper value matches the True button value
+
         }, 0);
     </script>
 </body>
